@@ -28,7 +28,8 @@ public class ApplicationTestConfiguration {
 		final SimpleDriverDataSource inMemoryDataSource = new SimpleDriverDataSource();
 		inMemoryDataSource.setUsername("sa");
 		inMemoryDataSource.setPassword("");
-		inMemoryDataSource.setUrl("jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000");
+		inMemoryDataSource.setUrl(
+				"jdbc:h2:tcp://localhost/activititest;DB_CLOSE_ON_EXIT=FALSE");
 		inMemoryDataSource.setDriverClass(org.h2.Driver.class);
 
 		return inMemoryDataSource;
