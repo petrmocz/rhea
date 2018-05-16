@@ -9,6 +9,8 @@ import org.activiti.engine.repository.Deployment;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
@@ -19,7 +21,20 @@ import org.springframework.context.annotation.Bean;
  *
  */
 @SpringBootApplication
-public class App {
+public class App extends SpringBootServletInitializer {
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.boot.web.servlet.support.SpringBootServletInitializer
+	 * #configure(org.springframework.boot.builder.SpringApplicationBuilder)
+	 */
+	@Override
+	protected SpringApplicationBuilder configure(
+			SpringApplicationBuilder application) {
+		return application.sources(App.class);
+	}
 
 	/**
 	 * Main application startpoint method.
@@ -39,8 +54,7 @@ public class App {
 	 * @return null
 	 */
 	@Bean
-	public final CommandLineRunner commandLineRunner(
-			final ApplicationContext ctx) {
+	public CommandLineRunner commandLineRunner(final ApplicationContext ctx) {
 		return args -> {
 
 			final ProcessEngine processEngine = (ProcessEngine) ctx
