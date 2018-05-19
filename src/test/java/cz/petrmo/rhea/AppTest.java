@@ -26,6 +26,7 @@ import junit.framework.TestCase;
 @ContextConfiguration(classes = ApplicationTestConfiguration.class)
 public class AppTest extends TestCase {
 
+	@SuppressWarnings("unused")
 	private final Logger		log	= LoggerFactory.getLogger(getClass());
 
 	@Autowired
