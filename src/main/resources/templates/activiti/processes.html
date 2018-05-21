@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Process definitions</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+        <tr th:each="processdef : ${processDefinitionList}">
+            <td th:text="${processdef.getName()}">Name</td>
+            <td th:text="${processdef.getDescription()}">Name</td>
+        </tr>
+	</table>
+	<div>Found <span th:text="${count}"> processes</span></div>
+</body>
+</html>
